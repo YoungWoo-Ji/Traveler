@@ -1,0 +1,68 @@
+const { ModalBuilder, TextInputBuilder, TextInputStyle, LabelBuilder } = require("discord.js")
+
+module.exports = {
+  name:"create",
+  permission:1,
+  async execute(interaction){
+    //도장 생성 모달
+    const modal = new ModalBuilder()
+      .setCustomId('create')
+      .setTitle('도장 생성하기')
+    const option1 = new TextInputBuilder()
+      .setStyle(TextInputStyle.Short)
+      .setCustomId('option1')
+      .setPlaceholder('예) #FF0000')
+      .setMaxLength(7)
+      .setMinLength(4)
+      .setRequired(true)
+    const option2 = new TextInputBuilder()
+      .setStyle(TextInputStyle.Short)
+      .setCustomId('option2')
+      .setPlaceholder('예) 1')
+      .setMaxLength(1)
+      .setMinLength(1)
+      .setRequired(true)
+    const option3 = new TextInputBuilder()
+      .setStyle(TextInputStyle.Short)
+      .setCustomId('option3')
+      .setPlaceholder('예 나침반')
+      .setMaxLength(10)
+      .setMinLength(1)
+      .setRequired(true)
+    const option4 = new TextInputBuilder()
+      .setStyle(TextInputStyle.Short)
+      .setCustomId('option4')
+      .setPlaceholder('예) 아름다운')
+      .setMaxLength(20)
+      .setMinLength(1)
+      .setRequired(false)
+    const option5 = new TextInputBuilder()
+      .setStyle(TextInputStyle.Short)
+      .setCustomId('option5')
+      .setPlaceholder('예) 우리나라')
+      .setMaxLength(20)
+      .setMinLength(1)
+      .setRequired(false)
+
+    const label1 = new LabelBuilder()
+      .setLabel('테마색상 선택')
+      .setTextInputComponent(option1)
+    const label2 = new LabelBuilder()
+      .setLabel('테두리 선택')      
+      .setTextInputComponent(option2)
+    const label3 = new LabelBuilder()
+      .setLabel('심볼 선택')
+      .setTextInputComponent(option3)
+    const label4 = new LabelBuilder()
+      .setLabel('상단 문구 선택')
+      .setTextInputComponent(option4)
+    const label5 = new LabelBuilder()
+      .setLabel('하단 문구 선택')
+      .setTextInputComponent(option5)
+
+    modal
+    .addLabelComponents(label1,label2,label3,label4,label5)
+
+    await interaction.showModal(modal)
+  }
+}

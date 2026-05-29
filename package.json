@@ -1,0 +1,19 @@
+{
+  "name": "traveler",
+  "version": "1.0.0",
+  "description": "",
+  "license": "MIT",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@napi-rs/canvas": "^0.1.93",
+    "better-sqlite3": "^12.6.2",
+    "discord.js": "^14.25.1",
+    "pm2": "^6.0.5",
+    "undici": "^7.22.0"
+  }
+}
